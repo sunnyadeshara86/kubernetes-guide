@@ -37,7 +37,7 @@
 ## Check Performance
 
 | Name                                         | Command                                              |
-|----------------------------------------------+------------------------------------------------------|
+|----------------------------------------------|------------------------------------------------------|
 | Get node resource usage                      | =kubectl top node=                                   |
 | Get pod resource usage                       | =kubectl top pod=                                    |
 | Get resource usage for a given pod           | =kubectl top <podname> --containers=                 |
@@ -46,7 +46,7 @@
 ## Resources Deletion
 
 | Name                                    | Command                                                  |
-|-----------------------------------------+----------------------------------------------------------|
+|-----------------------------------------|----------------------------------------------------------|
 | Delete pod                              | =kubectl delete pod/<pod-name> -n <my-namespace>=        |
 | Delete pod by force                     | =kubectl delete pod/<pod-name> --grace-period=0 --force= |
 | Delete pods by labels                   | =kubectl delete pod -l env=test=                         |
@@ -59,7 +59,7 @@
 ## Log & Conf Files
 
 | Name                      | Comment                                                                   |
-|---------------------------+---------------------------------------------------------------------------|
+|---------------------------|---------------------------------------------------------------------------|
 | Config folder             | =/etc/kubernetes/=                                                        |
 | Certificate files         | =/etc/kubernetes/pki/=                                                    |
 | Credentials to API server | =/etc/kubernetes/kubelet.conf=                                            |
@@ -78,7 +78,7 @@
 ## Pod
 
 | Name                         | Command                                                                                   |
-|------------------------------+-------------------------------------------------------------------------------------------|
+|------------------------------|-------------------------------------------------------------------------------------------|
 | List all pods                | =kubectl get pods=                                                                        |
 | List pods for all namespace  | =kubectl get pods --all-namespaces=                                                        |
 | List all critical pods       | =kubectl get -n kube-system pods -a=                                                      |
@@ -96,7 +96,7 @@
 ## Label & Annotation
 
 | Name                             | Command                                                           |
-|----------------------------------+-------------------------------------------------------------------|
+|----------------------------------|-------------------------------------------------------------------|
 | Filter pods by label             | =kubectl get pods -l owner=denny=                                 |
 | Manually add label to a pod      | =kubectl label pods dummy-input owner=denny=                      |
 | Remove label                     | =kubectl label pods dummy-input owner-=                           |
@@ -105,7 +105,7 @@
 ## Deployment & Scale
 
 | Name                         | Command                                                                  |
-|------------------------------+--------------------------------------------------------------------------|
+|------------------------------|--------------------------------------------------------------------------|
 | Scale out                    | =kubectl scale --replicas=3 deployment/nginx-app=                        |
 | online rolling upgrade       | =kubectl rollout app-v1 app-v2 --image=img:v2=                           |
 | Roll backup                  | =kubectl rollout app-v1 app-v2 --rollback=                               |
@@ -118,7 +118,7 @@
 ## Quota & Limits & Resource
 
 | Name                          | Command                                                                 |
-|-------------------------------+-------------------------------------------------------------------------|
+|-------------------------------|-------------------------------------------------------------------------|
 | List Resource Quota           | =kubectl get resourcequota=                                             |
 | List Limit Range              | =kubectl get limitrange=                                                |
 | Customize resource definition | =kubectl set resources deployment nginx -c=nginx --limits=cpu=200m=     |
@@ -127,7 +127,7 @@
 ## Service
 
 | Name                            | Command                                                                           |
-|---------------------------------+-----------------------------------------------------------------------------------|
+|---------------------------------|-----------------------------------------------------------------------------------|
 | List all services               | =kubectl get services=                                                            |
 | List service endpoints          | =kubectl get endpoints=                                                           |
 | Get service detail              | =kubectl get service nginx-service -o yaml=                                       |
@@ -139,7 +139,7 @@
 ## Secrets
 
 | Name                             | Command                                                                 |
-|----------------------------------+-------------------------------------------------------------------------|
+|----------------------------------|-------------------------------------------------------------------------|
 | List secrets                     | =kubectl get secrets --all-namespaces=                                  |
 | Generate secret                  | =echo -n 'mypasswd', then redirect to base64 --decode=                  |
 | Get secret                       | =kubectl get secret denny-cluster-kubeconfig=                           |
@@ -149,7 +149,7 @@
 ## StatefulSet
 
 | Name                               | Command                                                  |
-|------------------------------------+----------------------------------------------------------|
+|------------------------------------|----------------------------------------------------------|
 | List statefulset                   | =kubectl get sts=                                        |
 | Delete statefulset only (not pods) | =kubectl delete sts/<stateful_set_name> --cascade=false= |
 | Scale statefulset                  | =kubectl scale sts/<stateful_set_name> --replicas=5=     |
@@ -157,7 +157,7 @@
 ## Volumes & Volume Claims
 
 | Name                      | Command                                                      |
-|---------------------------+--------------------------------------------------------------|
+|---------------------------|--------------------------------------------------------------|
 | List storage class        | =kubectl get storageclass=                                   |
 | Check the mounted volumes | =kubectl exec storage ls /data=                              |
 | Check persist volume      | =kubectl describe pv/pv0001=                                 |
@@ -167,14 +167,14 @@
 ## Events & Metrics
 
 | Name                            | Command                                                    |
-|---------------------------------+------------------------------------------------------------|
+|---------------------------------|------------------------------------------------------------|
 | View all events                 | =kubectl get events --all-namespaces=                      |
 | List Events sorted by timestamp | kubectl get events --sort-by=.metadata.creationTimestamp   |
 
 ## Node Maintenance
 
 | Name                                      | Command                       |
-|-------------------------------------------+-------------------------------|
+|-------------------------------------------|-------------------------------|
 | Mark node as unschedulable                | =kubectl cordon $NODE_NAME=   |
 | Mark node as schedulable                  | =kubectl uncordon $NODE_NAME= |
 | Drain node in preparation for maintenance | =kubectl drain $NODE_NAME=    |
@@ -182,7 +182,7 @@
 ## Namespace & Security
 
 | Name                          | Command                                                                                             |
-|-------------------------------+-----------------------------------------------------------------------------------------------------|
+|-------------------------------|-----------------------------------------------------------------------------------------------------|
 | List authenticated contexts   | =kubectl config get-contexts=, =~/.kube/config=                                                     |
 | Set namespace preference      | =kubectl config set-context <context_name> --namespace=<ns_name>=                                   |
 | Switch context                | =kubectl config use-context <context_name>=                                                         |
@@ -196,7 +196,7 @@
 ## Network
 
 | Name                              | Command                                                  |
-|-----------------------------------+----------------------------------------------------------|
+|-----------------------------------|----------------------------------------------------------|
 | Temporarily add a port-forwarding  | =kubectl port-forward redis-134 6379:6379=               |
 | Add port-forwarding for deployment | =kubectl port-forward deployment/redis-master 6379:6379= |
 | Add port-forwarding for replicaset | =kubectl port-forward rs/redis-master 6379:6379=         |
@@ -208,13 +208,13 @@
 ## Patch
 
 | Name                          | Summary                                                             |
-|-------------------------------+---------------------------------------------------------------------|
+|-------------------------------|---------------------------------------------------------------------|
 | Patch service to loadbalancer | kubectl patch svc $svc_name -p '{"spec": {"type": "LoadBalancer"}}' |
 
 ## Extenstions
 
 | Name                                    | Summary                    |
-|-----------------------------------------+----------------------------|
+|-----------------------------------------|----------------------------|
 | Enumerates the resource types available | =kubectl api-resources=    |
 | List api group                          | =kubectl api-versions=     |
 | List all CRD                            | =kubectl get crd=          |
@@ -225,7 +225,7 @@
 ### Services on Master Nodes
 
 | Name                     | Summary                                                                                    |
-|--------------------------+--------------------------------------------------------------------------------------------|
+|--------------------------|--------------------------------------------------------------------------------------------|
 | [[https://github.com/kubernetes/kubernetes/tree/master/cmd/kube-apiserver][kube-apiserver]]           | API gateway. Exposes the Kubernetes API from master nodes                                  |
 | [[https://coreos.com/etcd/][etcd]]                     | reliable data store for all k8s cluster data                                               |
 | [[https://github.com/kubernetes/kubernetes/tree/master/cmd/kube-scheduler][kube-scheduler]]           | schedule pods to run on selected nodes                                                     |
@@ -235,7 +235,7 @@
 ### Services on Worker Nodes
 
 | Name              | Summary                                                                                      |
-|-------------------+----------------------------------------------------------------------------------------------|
+|-------------------|----------------------------------------------------------------------------------------------|
 | [[https://github.com/kubernetes/kubernetes/tree/master/cmd/kubelet][kubelet]]           | A node agent makes sure that containers are running in a pod                                 |
 | [[https://github.com/kubernetes/kubernetes/tree/master/cmd/kube-proxy][kube-proxy]]        | Manage network connectivity to the containers. e.g, iptable, ipvs                            |
 | [[https://github.com/docker/engine][Container Runtime]] | Kubernetes supported runtimes: dockerd, cri-o, runc and any [[https://github.com/opencontainers/runtime-spec][OCI runtime-spec]] implementation. |
@@ -243,7 +243,7 @@
 ### Addons: pods and services that implement cluster features
 
 | Name                          | Summary                                                                   |
-|-------------------------------+---------------------------------------------------------------------------|
+|-------------------------------|---------------------------------------------------------------------------|
 | DNS                           | serves DNS records for Kubernetes services                                |
 | Web UI                        | a general purpose, web-based UI for Kubernetes clusters                   |
 | Container Resource Monitoring | collect, store and serve container metrics                                |
@@ -252,7 +252,7 @@
 ### Tools
 
 | Name                  | Summary                                                     |
-|-----------------------+-------------------------------------------------------------|
+|-----------------------|-------------------------------------------------------------|
 | [[https://github.com/kubernetes/kubernetes/tree/master/cmd/kubectl][kubectl]]               | the command line util to talk to k8s cluster                |
 | [[https://github.com/kubernetes/kubernetes/tree/master/cmd/kubeadm][kubeadm]]               | the command to bootstrap the cluster                        |
 | [[https://kubernetes.io/docs/reference/setup-tools/kubefed/kubefed/][kubefed]]               | the command line to control a Kubernetes Cluster Federation |
