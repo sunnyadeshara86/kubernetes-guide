@@ -3,7 +3,7 @@
 ## Common Commands
 
 | Name                                 | Command                                                                                   |
-|--------------------------------------+-------------------------------------------------------------------------------------------|
+|--------------------------------------|-------------------------------------------------------------------------------------------|
 | Run curl test temporarily            | =kubectl run --generator=run-pod/v1 --rm mytest --image=yauritux/busybox-curl -it=        |
 | Run wget test temporarily            | =kubectl run --generator=run-pod/v1 --rm mytest --image=busybox -it wget=                 |
 | Run nginx deployment with 2 replicas | =kubectl run my-nginx --image=nginx --replicas=2 --port=80=                               |
